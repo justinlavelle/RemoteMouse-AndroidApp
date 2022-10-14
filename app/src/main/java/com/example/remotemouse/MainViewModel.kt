@@ -16,6 +16,9 @@ class MainViewModel : ViewModel() {
     var event: String = ""
     var click = false
 
+    /**
+     * METHOD TO SEND DATA TO SERVER AT EVERY 3 MILLISECONDS
+     */
     fun sendData() {
         while (socket!!.isConnected) {
 
@@ -27,6 +30,9 @@ class MainViewModel : ViewModel() {
         }
     }
 
+    /**
+     * METHOD TO SEND LEFT CLICK TO SERVER
+     */
     fun sendLeftClick() {
         Thread {
             writer!!.write("leftClick $dx $dy")
@@ -36,6 +42,9 @@ class MainViewModel : ViewModel() {
         }.start()
     }
 
+    /**
+     * METHOD TO SEND RIGHT CLICK TO SERVER
+     */
     fun sendRightClick() {
         Thread {
             writer!!.write("rightClick $dx $dy")
